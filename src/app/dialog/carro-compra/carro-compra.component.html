@@ -1,0 +1,54 @@
+<p>
+    <mat-toolbar color="primary">
+        <span>Carro de compra</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon shopping-cart">
+            <mat-icon>shopping_cart</mat-icon>
+        </button>
+    </mat-toolbar>
+</p>
+<mat-divider></mat-divider>
+<mat-grid-list cols="3" rowHeight="2:1">
+    <mat-list *ngFor="let obj of dataSource">
+        <mat-grid-tile>
+            <img class="small-image" src="http://{{obj.image}}" alt="{{obj.description}}">
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <ul>
+                <li>
+                    <strong>Descripción:</strong> {{obj.description}}
+                </li>
+                <li>
+                    <strong>Marca:</strong> {{obj.brand}}
+                </li>
+            </ul>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <p>
+                <strong>Valor:</strong> {{obj.price}}
+            </p>
+        </mat-grid-tile>
+    </mat-list>
+</mat-grid-list>
+<mat-divider></mat-divider>
+
+<ul *ngFor="let obj of ofertasList">
+    <li><strong>{{obj}}</strong></li>
+</ul>
+<mat-divider></mat-divider>
+<ul *ngFor="let obj of descuentoDado">
+    <li><strong>{{obj}}</strong></li>
+</ul>
+
+<mat-divider></mat-divider>
+<mat-toolbar color="Secondary">
+    <p><strong>Total descuentos:</strong></p>
+    <span class="example-spacer"></span>
+    <p><strong>{{totalDiscount}}</strong></p>
+</mat-toolbar>
+<mat-divider></mat-divider>
+<mat-toolbar color="Secondary">
+    <p><strong>Total a pagar:</strong></p>
+    <span class="example-spacer"></span>
+    <p><strong>{{carro.getTotalCarro()}}</strong></p>
+</mat-toolbar>
